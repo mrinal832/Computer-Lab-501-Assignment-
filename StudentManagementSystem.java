@@ -6,7 +6,13 @@ class Student {
     private String name;
     private int age;
     private String course;
-
+    
+    // committed by sunil 
+    public int pincode; 
+    public String city;
+    public String country;
+    public String state;
+    
     public Student(int id, String name, int age, String course) {
         this.id = id;
         this.name = name;
@@ -30,6 +36,14 @@ class Student {
         return course;
     }
 
+    // committed by sunil 
+    public void StudentAddress(String city, String state, String country, int pincode) {
+        this.city = city;
+        this.state = state;
+        this.country = country;
+		this.pincode = pincode;
+    }
+    
     public void updateStudent(String name, int age, String course) {
         this.name = name;
         this.age = age;
