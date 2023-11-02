@@ -95,6 +95,15 @@ class StudentManagement {
             System.out.println(student);
         }
     }
+	// commited by mrinal
+	public boolean deleteStudent(int id) {
+    Student student = findStudentById(id);
+    if (student != null) {
+        students.remove(student);
+        return true;
+    }
+    return false;
+}
 }
 
 public class StudentManagementSystem {
@@ -110,6 +119,10 @@ public class StudentManagementSystem {
             System.out.println("3. Update Student");
             System.out.println("4. List all Students");
             System.out.println("5. Exit");
+		
+	    //commited by mrinal
+	    System.out.println("6. Delete Student");
+		
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // Consume the newline character
@@ -167,6 +180,20 @@ public class StudentManagementSystem {
                     scanner.close();
                     System.exit(0);
                     break;
+
+		//commited by mrinal		    
+		case 6:
+    		System.out.print("Enter student ID to delete: ");
+    		int idToDelete = scanner.nextInt();
+    		scanner.nextLine(); // Consume the newline character
+    		boolean isDeleted = studentManagement.deleteStudent(idToDelete);
+    		if (isDeleted) {
+        	System.out.println("Student deleted successfully.");
+    		} else {
+        	System.out.println("Student not found.");
+    		}
+    		break;
+			    
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
